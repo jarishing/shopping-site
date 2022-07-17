@@ -1,0 +1,41 @@
+<div class="flex-container w-100 h-100 base d-flex justify-content-center align-items-center bg__main">
+    <div class="card p-3">
+        <form [formGroup]="loginForm" (ngSubmit)="login()" novalidate>
+            <div style="height: 126px;">
+                <h4 class="color__text">Username</h4>
+                <input 
+                    type="text" 
+                    class="p-2 color__text edit__item__input form-control"
+                    formControlName="username"
+                    [ngClass]="{ 'is-invalid':  f.username.invalid &&  f.username.touched }"
+                >
+                <div class="py-2 text-danger" *ngIf="f.username.invalid && f.username.touched">
+                    Please enter the username.
+                </div>
+            </div>
+            <div style="height: 126px;">
+                <h4 class="color__text">Password</h4>
+                <input 
+                    type="password" 
+                    class="p-2 color__text edit__item__input form-control"
+                    formControlName="password"
+                    [ngClass]="{ 'is-invalid':  f.password.invalid &&  f.password.touched }"
+                >
+                <div class="py-2 text-danger" *ngIf="f.password.invalid && f.password.touched">
+                    Please enter the password.
+                </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="color__text cursor__pointer" (click)="toForgetPwd()">
+                </div>
+                <button type="submit" class="bg__main text-white p-2 border-0">
+                    Login
+                </button>
+            </div>
+            <div class="py-2 text-danger" *ngIf="warming">
+                <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                Your username or password does not match.
+            </div> 
+        </form>
+    </div>
+</div>

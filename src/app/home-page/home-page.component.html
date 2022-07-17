@@ -1,0 +1,105 @@
+<div class="flex-container w-100 h-100 base d-flex justify-content-center bg__main">
+    <div class="container d-flex flex-column">
+        <div class="w-100 bg-white d-flex justify-content-center align-items-center" style="height: 200px;">
+            <img class="item__image" src="https://s.yimg.jp/images/shp_edit/promotion/event/category/fashion/highprice/pc/images/pc_mainvisual.png">
+        </div>
+        <div class="w-100 d-flex justify-content-between align-items-center" style="height: 60px;">
+            <div class="mx-3 text-white">Shop Name</div>
+            <div class="d-flex">
+                <div class="mx-4 d-flex" [ngClass]="{'d-none': !staff}">
+                    <i 
+                        class="bi bi-shop text-white cursor__pointer" 
+                        style="font-size: x-large;" 
+                        (click)="inStoreOnCheck()"
+                    ></i>
+                </div>
+                <div class="mx-4 d-flex position-relative" [ngClass]="{'d-none': staff}">
+                    <i 
+                        class="bi bi-cart text-white cursor__pointer" 
+                        style="font-size: x-large;" 
+                        (click)="cartOnCheck()"
+                    ></i>
+                    <div 
+                        class="cart__number"
+                        *ngIf="this.cartService.cart.length !== 0"
+                    >{{this.cartService.cart.length}}</div>
+                </div>
+                <div class="mx-4 d-flex" [ngClass]="{'d-none': staff}">
+                    <i 
+                        class="bi bi-person-circle text-white cursor__pointer" 
+                        style="font-size: x-large;" 
+                        (click)="orderHistoryOnCheck()"
+                    ></i>
+                </div>
+                <div class="mx-4 d-flex">
+                    <i 
+                        class="bi bi-box-arrow-right text-white cursor__pointer" 
+                        style="font-size: x-large;" 
+                        (click)="loginOnCheck()"
+                    ></i>
+                </div>
+            </div>
+        </div>
+        <div class="w-100 d-flex bg-white" style="flex: 1;">
+            <div class="sideBar bg__main border-top">
+                <div 
+                    class="p-3 category cursor__pointer" 
+                    (click)="categorySelected('All')"
+                    [ngClass]="{ 'category__selected': selectedCategory == 'All' }"
+                >All</div>
+                <div 
+                    class="p-3 category cursor__pointer" 
+                    (click)="categorySelected('clothing')"
+                    [ngClass]="{ 'category__selected': selectedCategory == 'clothing' }"
+                >Clothing</div>
+                <div 
+                    class="p-3 category cursor__pointer" 
+                    (click)="categorySelected('footwear')"
+                    [ngClass]="{ 'category__selected': selectedCategory == 'footwear' }"
+                >Footwear</div>
+                <div 
+                    class="p-3 category cursor__pointer" 
+                    (click)="categorySelected('accessories')"
+                    [ngClass]="{ 'category__selected': selectedCategory == 'accessories' }"
+                >Accessories</div>
+            </div>
+            <div class="position-relative" style="flex:1;">
+                <div class="item__showing__list position-absolute p-3">
+                        <div class="row">
+                            <div class="col-3 mb-3" *ngFor="let item of items">
+                                <div class="p-3 item__card cursor__pointer" (click)="itemOnCheck(item.id)">
+                                    <div class="d-flex justify-content-center align-items-center" style="height: 200px; font-size: x-large;">
+                                        <img class="item__image" src='{{item.item_image}}'>
+                                    </div>
+                                    <div style="min-height: 72px;">{{item.item_name}}</div>
+                                    <div class="d-flex justify-content-between">
+                                        <h6 class="m-0">{{item.main_category}}</h6>
+                                        <h6 class="m-0">$ {{item.price}}</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 
+<div class="item__showing__list position-absolute p-3">
+    <div class="row">
+        <div class="col-3 mb-3" *ngFor="let item of allItems" (click)="itemOnCheck()">
+            <div class="p-3 item__card cursor__pointer">
+                <div class="d-flex justify-content-center align-items-center" style="height: 200px; font-size: x-large;">
+                    Image
+                </div>
+                <div>Item name</div>
+                <div class="d-flex justify-content-between">
+                    <h6 class="m-0">item category</h6>
+                    <h6 class="m-0">$ price</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->

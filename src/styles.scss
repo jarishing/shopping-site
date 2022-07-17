@@ -1,1 +1,43 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+.sideBar{
+    width: 140px;
+}
+
+.color__main{
+    color: #A2B062;
+}
+
+.bg__main{
+    background-color: #A2B062;
+}
+
+.color__sub{
+    color: #CED7AE;
+}
+
+.bg__sub{
+    background-color: #CED7AE;
+}
+
+.cursor__pointer{
+    cursor: pointer;
+}
+
+.color__text{
+    color: #4C6B28;
+}
+
+.bg__text{
+    background-color: #4C6B28;
+}
+
+.back_home{
+    font-size: xx-large;
+    color: white;
+    cursor: pointer;
+}
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

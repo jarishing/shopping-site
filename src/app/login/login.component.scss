@@ -1,0 +1,22 @@
+// .base{
+//     // background: transparent linear-gradient(0deg, #6DCFB3 0%, #44B9CE 100%) 0% 0% no-repeat padding-box;
+//     // opacity: 0.75;
+// }
+
+.card{
+    width: 400px;
+    height: 350px;
+    box-shadow: 0 0px 8px #798088;
+}
+
+
+/* .is-invalid{
+    border-color: #ff021a;
+} */
+
+.edit__item__input{
+}
+  
+.form-control:focus{
+    outline: none !important;
+}

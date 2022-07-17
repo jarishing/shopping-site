@@ -1,0 +1,52 @@
+<div class="flex-container w-100 h-100 base d-flex justify-content-center bg__main">
+    <div class="container d-flex flex-column h-100 py-3">
+        <div class="w-100 h-100 bg-white row" style="border-radius: 30px;">
+            <div class="col-6 my-2" style="border-right: 1px solid #A2B062;">
+                <br>
+                <img class="item__image" src='{{item_image}}'>
+            </div>
+            <div class="col-6 py-2 d-flex flex-column">
+                <div class="border-bottom" style="border-color: #A2B062;flex:1;" >
+                    <br>
+                    <h1>{{item_name}}</h1>
+                    <br>
+                    <p>{{desc}}</p>
+                </div>
+                <div class="my-3 d-flex align-items-center flex-column">
+                    <div
+                      class="w-100 mb-3 d-flex justify-content-between align-items-center"
+                    >
+                      <div class="d-flex">
+                        <div 
+                            #increment value="plus"
+                            (click)="updateAmount('plus')"
+                            class="number__button px-4 col-3 d-flex justify-content-center align-items-center h-100 cursor__pointer"
+                        >
+                            <i class="bi bi-plus-lg"></i>
+                        </div>
+                        <div class="number__show px-0 col-6 d-flex justify-content-center align-items-center h-100">
+                            {{number}}
+                        </div>
+                        <div 
+                            #decrement value="minus"
+                            (click)="updateAmount('minus')"
+                            class="number__button px-4 col-3 d-flex justify-content-center align-items-center h-100 cursor__pointer"
+                        >
+                            <i class="bi bi-dash-lg"></i>
+                        </div>
+                      </div>
+                      <div style="font-size: x-large;">
+                        $ {{totalPrice}}
+                      </div>
+                    </div>
+                    <div 
+                        class="px-5 py-3 bg__main text-white d-flex justify-content-center align-items-center cursor__pointer"
+                        (click)="addToCart()"
+                    >
+                        Add to Cart
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

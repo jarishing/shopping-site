@@ -1,0 +1,53 @@
+<div class="flex-container w-100 h-100 base d-flex justify-content-center bg__main">
+    <div class="container d-flex flex-column h-100 py-3">
+        <i class="bi bi-house back_home" (click)="onBackHome()"></i>
+        <div class="w-100 h-100 bg-white my-4 px-4 d-flex flex-column" style="border-radius: 30px;">
+            <br>
+            <div class="d-flex justify-content-between pb-2" style="border-bottom: 1px solid #A2B062;">
+                <div class="d-flex align-items-center">
+                    <h3 class="m-0" (click)="onTest()">History Record</h3>
+                </div>
+                <div>
+                </div>
+            </div>
+            <div class="position-relative" style="flex:1;">
+              <div class="item__showing__list position-absolute">
+                <div class="item__wrapper p-3 py-4 my-2" *ngFor="let order of orders"> 
+                    <h5>Order # {{order.id}}</h5>
+                    <div class="row py-1" *ngFor="let item of order.item_selected">
+                        <div class="col-2">
+                            <img class="item__image p-2" src='{{item.item_image}}'/>
+                        </div>
+                        <div class="col-6">
+                            <div class="w-100 h-100 d-flex align-items-center">
+                              {{item.item_name}}
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="w-100 h-100 d-flex align-items-center">
+                              {{item.number}}
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="w-100 h-100 d-flex align-items-center">
+                              {{item.totalPrice}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-100 bg-black my-2" style="height:1px;" ></div>
+                    <div class="row">
+                        <div class="col-10">
+                            Total:
+                        </div>
+                        <div class="col-2">
+                            <div class="w-100 h-100 d-flex align-items-center">
+                              {{order.total_price}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,157 @@
+<div class="flex-container w-100 h-100 base d-flex justify-content-center bg__main">
+    <div class="container d-flex flex-column h-100 py-3">
+        <i class="bi bi-house back_home" (click)="onBackHome()"></i>
+        <div class="w-100 h-100 bg-white my-4 px-4 d-flex flex-column" style="border-radius: 30px;">
+            <br>
+            <div class="d-flex justify-content-between pb-2" style="border-bottom: 1px solid #A2B062;">
+                <div class="d-flex align-items-center">
+                    <h3 class="m-0" (click)="onTest()">In Store</h3>
+                </div>
+                <div>
+                    <input type="text" class="history__input px-3 icon-rtl text-secondary" placeholder="Item Name">
+                </div>
+            </div>
+            <div class="row">
+              <div class="row col-11 mx-4 my-2">
+                <div class="col-2"></div>
+                <div class="col-4">Name</div>
+                <div class="col-2">Main Category</div>
+                <div class="col-1">Price</div>
+                <div class="col-1">In-store</div>
+                <div class="col-1">Status</div>
+                <div class="col-1"></div>
+              </div>
+            </div>
+            <div class="position-relative" style="flex:1;">
+              <div class="item__showing__list position-absolute">
+                <div class="row mb-1" *ngFor="let item of items">
+                  <div class="item__wrapper text-secondary row py-2 mx-4 my-1 col-11">
+                    <div class="col-2">
+                      <img class="item__image p-2" src='{{item.item_image}}'/>
+                    </div>
+                    <div class="col-4">
+                      <div class="w-100 h-100 d-flex align-items-center">
+                        {{item.item_name}}
+                      </div>
+                    </div>
+                    <div class="col-2">
+                      <div class="w-100 h-100 d-flex align-items-center">
+                        {{item.main_category}}
+                      </div>
+                    </div>
+                    <div class="col-1">
+                      <div class="w-100 h-100 d-flex align-items-center">
+                        {{item.price}}
+                      </div>
+                    </div>
+                    <div class="col-1">
+                      <div class="w-100 h-100 d-flex align-items-center">
+                        {{item.instore_number}}
+                      </div>
+                    </div>
+                    <div class="col-1">
+                      <div class="w-100 h-100 d-flex align-items-center">
+                        {{item.active_status?"Available":"Unavailable"}}
+                      </div>
+                    </div>
+                    <div class="col-1 d-flex align-items-center justify-content-center">
+                      <i 
+                        class="bi bi-pencil item__checkable__hints cursor__pointer" 
+                        aria-hidden="true" style="font-size: x-large;"
+                        (click)="editItem(item.id)"
+                      ></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Edit Item Modal -->
+<ng-template #editItemModal let-modal style="border-radius: 20px;">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title" (click)="onTest()">Item update</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="itemEditForm">
+      <div class="text-secondary">
+        <h5 class="my-2">Name</h5>
+        <input type="text" class="p-2 main__color edit__item__input__wrapper w-100" formControlName="item_name">
+      </div>
+      <div class="text-secondary">
+        <h5 class="my-2">Category</h5>
+        <input type="text" class="p-2 main__color edit__item__input__wrapper w-100" formControlName="main_category">
+      </div>
+      <div class="text-secondary">
+        <h5 class="my-2">Desciption</h5>
+        <input type="text" class="p-2 main__color edit__item__input__wrapper w-100" formControlName="desciption">
+      </div>
+      <div class="text-secondary">
+        <h5 class="my-2">Price</h5>
+        <input type="number" class="p-2 main__color edit__item__input__wrapper w-100" formControlName="price">
+      </div>
+      <div class="text-secondary">
+        <h5 class="my-2">In-store</h5>
+        <input type="number" class="p-2 main__color edit__item__input__wrapper w-100" formControlName="instore_number">
+      </div>
+      <div class="text-secondary">
+        <h5 class="my-2">Active Status</h5>
+        <select class="w-100 edit__item__input__wrapper p-2 main__color" formControlName="active_status">
+          <option [ngValue]="true">Sell</option>
+          <option [ngValue]="false">Non-sell</option>
+        </select>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="onSubmit()">Save</button>
+  </div>
+</ng-template>
+
+
+
+
+<!-- <div class="row mb-1">
+  <div class="item__wrapper text-secondary row py-2 mx-4 my-1 col-11">
+    <div class="col-2">
+      <img class="item__image p-2" src="https://cdn-mms.hktvmall.com/hktv/mms/uploadProductImage/686b/3db1/9621/MjGjTuxYXN20211117162151_300.jpg"/>
+    </div>
+    <div class="col-2">
+      <div class="w-100 h-100 d-flex align-items-center">
+        Item Name
+      </div>
+    </div>
+    <div class="col-2">
+      <div class="w-100 h-100 d-flex align-items-center">
+        Category
+      </div>
+    </div>
+    <div class="col-2">
+      <div class="w-100 h-100 d-flex align-items-center">
+        Subcategory
+      </div>
+    </div>
+    <div class="col-1">
+    </div>
+    <div class="col-1">
+      <div class="w-100 h-100 d-flex align-items-center">
+        Price
+      </div>
+    </div>
+    <div class="col-1">
+      <div class="w-100 h-100 d-flex align-items-center">
+        Active Status
+      </div>
+    </div>
+    <div class="col-1 d-flex align-items-center justify-content-center">
+      <i 
+        class="bi bi-pencil item__checkable__hints cursor__pointer" 
+        aria-hidden="true" style="font-size: x-large;"
+      ></i>
+    </div>
+  </div>
+</div> -->

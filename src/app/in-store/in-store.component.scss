@@ -1,0 +1,125 @@
+.history__input{
+  width: 200px;
+  height: 40px;
+  border-radius: 20px;
+  border-width: 1px;
+}
+
+.icon-rtl {
+  background: url(https://static.thenounproject.com/png/101791-200.png) no-repeat right;
+  background-size: 20px;
+  background-color: #fff;
+  background-position: 170px;
+}
+
+.btn__pagation{
+  color: #56b5aa;
+  font-size: x-large;
+}
+
+.btn__disable{
+  color: gray !important;
+}
+
+.item__wrapper{
+  background: #EDF1F2 0% 0% no-repeat padding-box;
+  border-radius: 40px;
+}
+
+.description__dropmenu{
+  width: 50%;
+  border-radius: 12px;
+  border-color: #56b5aa;
+  box-shadow: 0 1px 6px rgb(32 33 36 / 28%);
+}
+
+.view__item__container{
+  flex: 1;
+}
+
+.item__image{
+  max-width: 65px;
+  max-height: 65px;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #56b5aa;
+  cursor: pointer;
+}
+
+.item__checkable__hints{
+  color: #ffc107 !important;
+}
+
+.modal__body{
+  max-height: 640px;
+  overflow-y: scroll;
+  overflow-x:hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.modal__body::-webkit-scrollbar {
+  display: none; 
+}
+
+.edit__item__option__show__wrapper{
+  overflow-x:scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.edit__item__option__show__wrapper::-webkit-scrollbar {
+  display: none; 
+}
+
+.edit__item__button{
+  font-size: large;
+  border-radius: 28px;
+  cursor: pointer;
+  height: fit-content;
+}
+
+.edit__item__option__input__wrapper{
+  border: 1px solid darkgray;
+  border-radius: 20px;
+}
+
+.edit__item__input__wrapper{
+  border: 1px solid darkgray;
+}
+
+.edit__item__input{
+  border: 0;
+  flex: 1;
+}
+
+.edit__item__input:focus{
+  outline: none;
+}
+
+.option__check__wrapper{
+  margin-right: 1.5rem;
+}
+
+.option__check__label{
+  margin-right: 0.5rem;
+}
+
+.item__showing__list{
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.item__showing__list::-webkit-scrollbar {
+  display: none; 
+}
+
+.edit__item__input__wrapper{
+  border: 1px solid darkgray;
+}

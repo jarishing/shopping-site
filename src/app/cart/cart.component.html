@@ -1,0 +1,140 @@
+<div class="flex-container w-100 h-100 base d-flex justify-content-center bg__main">
+    <div class="container d-flex flex-column h-100 py-3">
+        <i class="bi bi-house back_home" (click)="onBackHome()"></i>
+        <div class="w-100 h-100 bg-white row" style="border-radius: 30px;">
+            <div class="col-8 my-4 px-4 d-flex flex-column" style="border-right: 1px solid #A2B062;">
+                <h4 class="pb-2" style="border-bottom: 1px solid #A2B062;">Cart</h4>
+                <div class="position-relative" style="flex:1">
+                    <div class="item__showing__list position-absolute">
+
+                        <div class="row mb-2" *ngFor="let item of this.cartService.cart">
+                            <div class="col-2">
+                                <img style="max-width:75px;object-fit: cover;" src='{{item.item_image}}'>
+                            </div>
+                            <div class="col-10 row align-items-center">
+                                <div class="col-4">
+                                    <div style="font-weight: bold;">{{item.item_name}}</div>
+                                </div>
+                                <div class="col-4 d-flex justify-content-center">
+                                    <div>
+                                        <i 
+                                            class="bi bi-plus cursor__pointer" 
+                                            style="font-size: x-large;"
+                                            (click)="this.cartService.updateAmount( 'plus', item.id )"    
+                                        ></i>
+                                    </div>
+                                    <div class="mx-2 d-flex justify-content-center align-items-center">
+                                        {{item.number}}
+                                    </div>
+                                    <div>
+                                        <i 
+                                            class="bi bi-dash cursor__pointer" 
+                                            style="font-size: x-large;"
+                                            (click)="this.cartService.updateAmount( 'minus', item.id )"
+                                        ></i>
+                                    </div>
+                                </div>
+                                <div class="col-4 d-flex justify-content-end">
+                                    $ {{item.totalPrice}}
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 py-2 d-flex flex-column">
+                <div class="border-bottom" style="border-color: #A2B062;flex: 1;">
+                    <br><br>
+                    <h5 class="pb-2" style="border-bottom: 1px solid #A2B062;">Total</h5>
+                    <div class="d-flex m-2 justify-content-between">
+                        <div>Total</div>
+                        <div>
+                            $ {{this.cartService.total}}
+                        </div>
+                    </div>
+                    <br><br><br><br>
+                    <h5 class="pb-2" style="border-bottom: 1px solid #A2B062;">Address</h5>
+                    <div class="d-flex m-2">
+                        <div>Address</div>
+                    </div>
+                    <br><br><br><br>
+                    <h5 class="pb-2" style="border-bottom: 1px solid #A2B062;">Payment Method</h5>
+                    <div class="d-flex m-2 flex-wrap">
+                        <div 
+                                class="payment_item d-flex justify-content-center cursor__pointer"
+                                (click)="onChange('paymentMethod', 'VISA')"
+                                [ngClass]="{ 'payment_item__selected': paymentMethod == 'VISA' }"
+                            >
+                                <img class="h-100 p-2" src="../../assets/payment/Visa.png">
+                            </div>
+                            <div 
+                                class="payment_item d-flex justify-content-center cursor__pointer"
+                                (click)="onChange('paymentMethod', 'MASTER')"
+                                [ngClass]="{ 'payment_item__selected': paymentMethod == 'MASTER' }"    
+                            >
+                                <img class="h-100 p-2" src="../../assets/payment/Mastercard.png">
+                            </div>
+                            <div 
+                                class="payment_item d-flex justify-content-center cursor__pointer"
+                                (click)="onChange('paymentMethod', 'OCTOPUS')"
+                                [ngClass]="{ 'payment_item__selected': paymentMethod == 'OCTOPUS' }"  
+                            >
+                                <img class="h-100 p-2" src="../../assets/payment/Octoplus.png">
+                            </div>
+                            <div 
+                                class="payment_item d-flex justify-content-center cursor__pointer"
+                                (click)="onChange('paymentMethod', 'WECHATPAY')"
+                                [ngClass]="{ 'payment_item__selected': paymentMethod == 'WECHATPAY' }"    
+                            >
+                                <img class="h-100 p-2" src="../../assets/payment/wechat.png">
+                            </div>
+                            <div 
+                                class="payment_item d-flex justify-content-center cursor__pointer"
+                                (click)="onChange('paymentMethod', 'ALIPLAY')"
+                                [ngClass]="{ 'payment_item__selected': paymentMethod == 'ALIPLAY' }"      
+                            >
+                                <img class="h-100 p-2" src="../../assets/payment/Alipay.png">
+                            </div>
+                            <div 
+                                class="payment_item d-flex justify-content-center cursor__pointer"
+                                (click)="onChange('paymentMethod', 'AMEX')"
+                                [ngClass]="{ 'payment_item__selected': paymentMethod == 'AMEX' }"    
+                            >
+                                <img class="h-100 p-2" src="../../assets/payment/American_Express.png">
+                            </div>
+                            <div 
+                                class="payment_item d-flex justify-content-center cursor__pointer"
+                                (click)="onChange('paymentMethod', 'UNION')"
+                                [ngClass]="{ 'payment_item__selected': paymentMethod == 'UNION' }"    
+                            >
+                                <img class="h-100 p-2" src="../../assets/payment/UnionPay.png">
+                            </div>
+                            <div 
+                                class="payment_item d-flex justify-content-center cursor__pointer"
+                                (click)="onChange('paymentMethod', 'APPLEPAY')"
+                                [ngClass]="{ 'payment_item__selected': paymentMethod == 'APPLEPAY' }"
+                            >
+                                <img class="h-100" src="../../assets/payment/applepay.png">
+                            </div>
+                            <div 
+                                class="payment_item d-flex align-items-center justify-content-center cursor__pointer"
+                                (click)="onChange('paymentMethod', 'CASH')"
+                                [ngClass]="{ 'payment_item__selected': paymentMethod == 'CASH' }"
+                            >
+                               Cash
+                            </div>
+                    </div>
+                </div>
+                <div class="my-3 d-flex justify-content-center">
+                    <div 
+                        class="px-5 py-3 bg__main text-white d-flex justify-content-center align-items-center cursor__pointer"
+                        (click)="onPayment()"
+                    >
+                        Payment
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
